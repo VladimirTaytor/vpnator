@@ -2,7 +2,7 @@
  * @author Vladimir Taytor <cetncat@gmail.com>
  */
 const request = require('request');
-const config = require('../config');
+const config = require('../config/config.json');
 
 const User = require('../persistent/entity/Users');
 const Link = require('../persistent/entity/Links');
@@ -37,7 +37,7 @@ class Processor {
   }
 
   static linkReplacer(match) {
-    return `${config.server.hostname}/r?l=${match}`
+    return `${process.env.SERVER_URL || config.server.hostname}/r?l=${match}`
   }
 
   static LINK_REGEXP() {

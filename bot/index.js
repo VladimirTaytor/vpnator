@@ -7,7 +7,7 @@ const Processor = require('../services/Processor');
 
 
 module.exports = function (config, DAO) {
-  const bot = new Telegraf(config.bot.token);
+  const bot = new Telegraf(process.env.TG_TOKEN || config.bot.token);
   const processor = new Processor(DAO);
 
   debug(`Bot ${config.bot.name} started`);

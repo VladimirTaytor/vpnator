@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 
-const config = require('./config');
+const config = require('./config/config.json');
 
 const DAO = require('./persistent/DAO');
 

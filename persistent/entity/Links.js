@@ -2,7 +2,7 @@
  * @author Vladimir Taytor <cetncat@gmail.com>
  */
 const crypto = require('crypto');
-const config = require('../../config');
+const config = require('../../config/config.json');
 const DOMAIN_REGEXP = /([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?$/;
 
 const AbstractEntity = require('./AbstractEntity');
@@ -16,7 +16,7 @@ class Link extends AbstractEntity{
     this.body = html;
     this.token = crypto.randomBytes(20).toString('hex');
     this.original = url;
-    this.generated = `${config.server.hostname}/o/${this.token}`;
+    this.generated = `${process.env.SERVER_URL || config.server.hostname}/o/${this.token}`;
     const domain = url.match(DOMAIN_REGEXP);
     this.service = domain ? domain[0] : 'Not defined';
   }

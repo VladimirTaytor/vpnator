@@ -1,0 +1,18 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "vpnator"
+  },
+  "admin": {
+    "password": "rooot12345w"
+  },
+  "bot": {
+    "name": "taytor_tests_bot",
+    "token": "466822781:AAHLDtCplp-vd2IUEtWBt64gnSDJ97dd7qE"
+  },
+  "server": {
+    "hostname": "http://localhost:3000"
+  }
+}
