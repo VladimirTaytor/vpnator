@@ -1,14 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const config = require('./config');
 
-var app = express();
+const DAO = require('./persistent/DAO');
+
+const dao = new DAO(config);
+const bot = require('./bot')(config, dao);
+
+const indexRouter = require('./routes/index');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,8 +32,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRouter(dao, config));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

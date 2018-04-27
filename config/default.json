@@ -1,13 +1,21 @@
 {
-  "database": {
-    "username": "root",
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
     "password": "",
-    "url": ""
+    "database": "vpnator"
   },
   "admin": {
     "password": "rooot12345w"
   },
   "jwt": {
     "secret": "Yarr, clear adventure!Why does the cannibal die?The girl commands with strength, hoist the freighter."
+  },
+  "bot": {
+    "name": "<The TG Bot>",
+    "token": "<The Token>"
+  },
+  "server": {
+    "hostname": "https://example.herokuapp.com"
   }
 }
