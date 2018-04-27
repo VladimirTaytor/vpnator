@@ -1,0 +1,13 @@
+{
+  "database": {
+    "username": "root",
+    "password": "",
+    "url": ""
+  },
+  "admin": {
+    "password": "rooot12345w"
+  },
+  "jwt": {
+    "secret": "Yarr, clear adventure!Why does the cannibal die?The girl commands with strength, hoist the freighter."
+  }
+}
