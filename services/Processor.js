@@ -23,7 +23,7 @@ class Processor {
           return reject(new Error(error));
         return resolve({
           html: body,
-          host: response.request.uri.href
+          host: response.request.uri.protocol + '//' + response.request.uri.hostname
         });
       });
     });
