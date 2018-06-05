@@ -25,9 +25,8 @@ module.exports = function (DAO, config) {
   });
 
   router.get('/r', function (req, res) {
-    return request(req.query.l, function (error, response, body) {
-      res.send(body);
-    })
+    const link = req.query.l;
+    return req.pipe(request(link)).pipe(res);
   });
 
   return router;
