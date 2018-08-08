@@ -39,7 +39,8 @@ class Processor {
         const link = new Link(result, url);
         return this.DAO.saveLink(new User(from.username, from.chat), link)
           .then(_ => link.getInternalLink());
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   static linkReplacer(match) {
@@ -59,7 +60,7 @@ class Processor {
   }
 
   static RELATIVE_PATH_REGEXP() {
-    return /(href|src)=(("([^"]*)")|('([^']*)'))/gi;
+    return /(link|href|src)=(("([^"]*)")|('([^']*)'))/gi;
   }
 }
 

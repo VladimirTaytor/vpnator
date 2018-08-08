@@ -35,7 +35,6 @@ class Link extends AbstractEntity{
 
   static createBlob(text){
     let buffer = Buffer.from(text, 'utf8');
-    console.log("AAAA", buffer.length);
     return buffer;
   }
 
